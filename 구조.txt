@@ -1,0 +1,57 @@
+src/
+├── app/                   
+│   ├── providers/         
+│	│	├── DarkModeProvider.tsx  		#다크모드 ContextApi
+│	│	├── UserAuthProvider.tsx		#로그인한 유저의 인가정보 ContextApi
+│	│	└── LoginKeepProvider.tsx		#로그인유지 flag contexApi
+│   ├── styles/             
+│	│	└── app.css						#App 전역 CSS
+│   └── index.tsx          				#라우터 선언 
+├── processes/
+│	└── auth
+│		├── interceptors/
+│		│	└── authInterceptor.ts		#api 호출이전 JWT 토큰 유효화 체크 
+│		└── lib/
+│			└── setJwtToken.ts			#발급 받은 토큰 스토리지 저장 
+├── pages/                 
+│	├── loginPage/
+│	│		├── components/
+│	│		│	├── LoginGrid.tsx		#로그인 페이지 레이아웃
+│	│		│	├── LoginForm.tsx		#Id/Pw 입력 로그인 form
+│	│		│	└── Loginkeep.tsx		#로그인 KeepCheck박스 
+│	│		├── hooks/
+│	│		│	└── KeppLogin.tsx		#로그인 keep 지정함수.
+│	│		└ index.tsx					#로그인 페이지 진입점.
+│	├── myPage/
+│	│	├── components/
+│	│	│	├── MyPageGrid.tsx			#마이페이지 레이아웃
+│	│	│	├── inputForm.tsx			#text인풋
+│	│	│	├── SelectForm.tsx			#셀렉트 인풋
+│	│	│	└── imageBox.tsx			#사진
+│	│	└ index.tsx						#마이프로필 페이지 진입점.
+│	└── AdminPage/
+│		├── components/
+│		└ index.tsx						#관리자 페이지 진입점.
+├── widgets/
+│	├── header/
+│	├── navigation/
+│	└── footer/
+├── features/
+│   ├── auth/     
+│	│	├── GetUserInfoAxios.ts			#로그인 사용자 정보 호출API
+│   │   └── PostLoginAxios.ts			#로그인용 백엔드 호출API      
+├── entities/
+│   └── user/
+│       ├── userTypes.ts    # 로그인한 사용자 정보 타입
+│       └── userUtils.ts    # 마이프로필 수정 함수              
+└── shared/
+	├── components/
+	│	├── layout/
+	│	│	└── mainPageLayout.tsx		#하위페이지 공통 레이아웃
+	│	└── item/
+	│		└──SubmitBtn.tsx		#공통 버튼 컴포넌트(로그인 및 사용자 정보 수정 버튼으로 사용)
+	├── hooks/
+	├── utils/
+	│	└xssFilter.ts		#로그인 및 회원정보 수정의 input 필터
+	└── styles/ 
+		└SubmitBtn.css		#공통버튼 css
