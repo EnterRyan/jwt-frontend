@@ -1,6 +1,8 @@
+Feature-Sliced Design
 src/
 ├── app/                   
 │   ├── providers/         
+│	│	├── ProtectRouterProvider.tsx  	#다크모드 ContextApi
 │	│	├── DarkModeProvider.tsx  		#다크모드 ContextApi
 │	│	├── UserAuthProvider.tsx		#로그인한 유저의 인가정보 ContextApi
 │	│	└── LoginKeepProvider.tsx		#로그인유지 flag contexApi
@@ -42,16 +44,16 @@ src/
 │   │   └── PostLoginAxios.ts			#로그인용 백엔드 호출API      
 ├── entities/
 │   └── user/
-│       ├── userTypes.ts    # 로그인한 사용자 정보 타입
-│       └── userUtils.ts    # 마이프로필 수정 함수              
+│       ├── userTypes.ts    			# 로그인한 사용자 정보 타입
+│       └── userUtils.ts    			# 마이프로필 수정 함수              
 └── shared/
 	├── components/
 	│	├── layout/
 	│	│	└── mainPageLayout.tsx		#하위페이지 공통 레이아웃
 	│	└── item/
-	│		└──SubmitBtn.tsx		#공통 버튼 컴포넌트(로그인 및 사용자 정보 수정 버튼으로 사용)
+	│		└──SubmitBtn.tsx			#공통 버튼 컴포넌트(로그인 및 사용자 정보 수정 버튼으로 사용)
 	├── hooks/
 	├── utils/
-	│	└xssFilter.ts		#로그인 및 회원정보 수정의 input 필터
+	│	└xssFilter.ts					#로그인 및 회원정보 수정의 input 필터
 	└── styles/ 
-		└SubmitBtn.css		#공통버튼 css
+		└SubmitBtn.css					#공통버튼 css
