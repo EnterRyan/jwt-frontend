@@ -1,24 +1,23 @@
-import ErrorPage from "../../pages/errorPage";
-import MainPage from "../../pages/mainPage";
-import LoginPage from "../../pages/loginPage";
-import AdminPage from "../../pages/adminPage";
-import App from "..";
+import MainPage from "@pages/mainPage";
+import LoginPage from "@pages/loginPage";
+import AdminPage from "@pages/adminPage";
 import { createBrowserRouter, RouterProvider } from "react-router";
 
-const Router = [
-  {
-    path : "/",
-    element : <App/>,
-    errorElement: <ErrorPage/>,
-    Children : [
-      { index: true, element: <MainPage/> },
-      { path: "login", element: <LoginPage/> },
-      { path: "Admin", element: <AdminPage/> },
-    ]
-  }
-]
+type ProtectedRouteType = {
+  children : React.ReactNode,
+}
+function ProtectedRoute ({children}:ProtectedRouteType){
+  return (
+  <>{children}</>
+  )
+}
+
+const Router = createBrowserRouter([
+  { index: true, element: (<ProtectedRoute><MainPage /></ProtectedRoute>) },
+  { path: "admin", element: (<ProtectedRoute><AdminPage /></ProtectedRoute>)  },
+  { path: "login", element: <LoginPage /> },
+]);
 
 export const ProtectRouterProvider = ()=>{
-  const router = createBrowserRouter(Router);
-  return <RouterProvider router={router}></RouterProvider>
+  return <RouterProvider router={Router}></RouterProvider>
 }
