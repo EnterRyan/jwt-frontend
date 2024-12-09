@@ -1,15 +1,13 @@
 import AppWrapper from "@shared/components/Layout/AppWrapper";
 import  UserIcon from 'assets/user-solid.svg';
 
+import './styles/layout.css'
 export default function LoginPage(){
   return (
     <AppWrapper>
       <div className="login-wrap">
         <div className="thumbnail">
-          <div style={{
-            color: "white"
-          }}>
-            {/* <UserIcon width={32} height={32}/> */}
+          <div>
             <img width={"32px"} src={UserIcon} alt="" />
             <h3>Login</h3>
           </div>

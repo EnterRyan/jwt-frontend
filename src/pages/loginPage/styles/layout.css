@@ -1,0 +1,18 @@
+.login-wrap{
+  width: 80%;
+  height: 80%;
+  margin: auto;
+  align-content: center;
+  display: grid;
+  grid-template-areas: "item1 item2";
+  justify-items: center;
+  align-items: center;
+}
+
+.thumbnail{
+  grid-area: item1;
+}
+
+.login-input{
+  grid-area: item2;
+}

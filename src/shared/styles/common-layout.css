@@ -1,0 +1,12 @@
+.app-wrapper{
+  width: 100vw;
+  height: 100vh;
+}
+
+.app-wrapper-light{
+  background-color: var(--base-light);
+}
+
+.app-wrapper-dark{
+  background-color: var(--base-dark);
+}
