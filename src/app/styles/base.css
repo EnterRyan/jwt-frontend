@@ -86,3 +86,9 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
+
+input {
+  box-shadow: none;
+  outline: none;
+  /* all: unset; */
+}
