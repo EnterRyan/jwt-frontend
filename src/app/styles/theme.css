@@ -1,0 +1,52 @@
+:root {
+  /* common-css */
+  font-size: 14px;
+  /* light-mode */
+  --background-base :  #fff;
+
+  /* font */
+  --tittle-color : #1f1f1f;
+  --font-color : #3c4043;
+  
+  /* contents-box */
+  --box-background :#f8f9fa;
+  --contents-header : #F5F7F8;
+  
+  /* input */
+  --input-background: #fff;
+  --input-background-hover : #c5ccd2;
+  --input-border-color :  1px solid #c5ccd2;
+
+  /* button */
+  --button-hover : #FBFBFC;
+  --button-border : 1px solid #dadcdf;
+  --button-none-over :fff;
+
+  /* check-box */
+
+} 
+
+[data-theme="dark"]{
+  /* dark-mode */
+  --background-base :  #1E1E20;
+
+  /* font */
+  --tittle-color : #e8e8e8;
+  --font-color : #e8eaed;
+  
+  /* contents-box */
+  --box-background : #272829;
+  --contents-header : #313233;
+  
+  /* input */
+  --input-background : #4d5156;
+  --input-background-hover : #5F6368;
+  --input-border-color :  1px solid transparent;
+
+  /* button */
+  --button-hover :#292A2B;
+  --button-border : 1px solid #515254;
+  --button-none-over : #343638;
+
+  /* check-box */
+}

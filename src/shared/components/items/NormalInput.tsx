@@ -7,10 +7,10 @@ type NormalInputType = {
 export default function NormalInput({type,labelText}:NormalInputType){
   return (
     <div className='input-box'>
-      <label htmlFor='normal-text-input'>{labelText}</label>
+      <label className='input-label' htmlFor='input-text'>{labelText}</label>
         <input 
-          className='normal-text-input' 
-          name='normal-text-input' 
+          className='input-text' 
+          name='input-text' 
           type={type} 
         />
     </div>

@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'jalnanGothic';
+  src: 
+  url('/src/assets/fonts/JalnanGothic.otf') format('truetype'),
+  url('/src/assets/fonts/YourFontName.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body{
+  font-family: 'jalnanGothic', sans-serif;
+}
+

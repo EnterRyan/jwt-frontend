@@ -1,0 +1,8 @@
+.test-components{
+  width : 1300px;
+  height  : 800px;
+  background-color: #dfdfdf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

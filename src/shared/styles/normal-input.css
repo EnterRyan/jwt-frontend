@@ -1,14 +1,23 @@
 .input-box{
-  width : 80%;
-
-  height: 60px;
-  min-height: 44px;
+  height: 40px;
+  position: relative;
 }
 
-.normal-text-input{
-  background-color: var( --input-background-color);
-  color: var(--font-color);
-  border: var(--border-color);
-  width: 100%;
+.input-label{
+  height: 40px;
+  position: absolute;
+  left:10px;
+  bottom: 0;
+  font-size: 14px;
+}
+
+.input-text{
   height: 100%;
+  background-color: var( --input-background);
+  color: var(--font-color);
+  border: var(--input-border-color);
+}
+
+.normal-text-input:hover{
+  background-color: var(--input-background-hover);
 }
