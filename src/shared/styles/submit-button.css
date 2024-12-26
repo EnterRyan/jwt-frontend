@@ -1,0 +1,8 @@
+.submit-button{
+  width: 100%;
+  height: 3rem;
+  background-color: var(--button-background);
+  border: var(--button-border);
+  color : var(--button-font-color);
+  border-radius: 4px;
+}

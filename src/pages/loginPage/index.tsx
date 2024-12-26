@@ -1,5 +1,5 @@
 import AppWrapper from "@shared/components/Layout/AppWrapper";
-import NormalInput from "@shared/components/items/NormalInput";
+import LoginForm from "./components/LoginForm";
 import  UserIcon from 'assets/user-solid.svg';
 
 import './styles/layout.css'
@@ -18,12 +18,7 @@ export default function LoginPage(){
             <p>let's build JWT Login</p>
         </div>
         <div className="login-panel">
-          <form className="login-form">
-            <NormalInput type="text" labelText="아이디"/>
-            <NormalInput type="password" labelText="비밀번호"/>
-            <input type="checkbox"></input>   
-            <button type="submit">Login</button>
-          </form>
+          <LoginForm/>
         </div>
       </div>
       <div>
