@@ -5,11 +5,12 @@
 }
 
 .input-label{
+  width: 90%;
   height: 50px;
-  position: absolute;
+ position: absolute; 
   left:10px;
-  bottom: 0;
   font-size: 14px;
+  color : var(--font-color);
 }
 
 .input-text{
@@ -19,8 +20,9 @@
   background-color: var( --input-background);
   color: var(--font-color);
   border: var(--input-border-color);
+  font-size: large;
 }
 
-.normal-text-input:hover{
+.input-text:hover{
   background-color: var(--input-background-hover);
 }
