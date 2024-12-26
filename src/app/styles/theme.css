@@ -6,13 +6,15 @@
   --button-border : 1px solid #1565C0;
   --button-background : #1565C0;
   --button-font-color : #fff;
+  /* toggle button */
+  --toggle-border-color: 1px solid #1f1f1f;
 
   /* light-mode */
   --background-base :  #fff;
 
   /* font */
   --tittle-color : #1f1f1f;
-  --font-color : #3c4043;
+  --font-color : #465764;
   
   /* contents-box */
   --box-background :#f8f9fa;
@@ -30,6 +32,9 @@
 [data-theme="dark"]{
   /* dark-mode */
   --background-base :  #1E1E20;
+
+  /* toggle button */
+  --toggle-border-color: 1px solid #e8e8e8;
 
   /* font */
   --tittle-color : #e8e8e8;

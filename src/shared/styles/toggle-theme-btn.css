@@ -1,5 +1,17 @@
 .toggle-theme-btn{
+  width: 50px;
+  height: 50px;
   position: fixed;
   right: 10px;
   bottom: 50px;
+  border-radius: 50px;
+  margin: auto;
+  background-color: var( --background-base);
+  border : var(--toggle-border-color);
+}
+
+[data-theme="dark"]{
+  .toggle-theme-btn >*{
+    filter: invert(1);
+  }
 }

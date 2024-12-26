@@ -1,6 +1,6 @@
 import AppWrapper from "@shared/components/Layout/AppWrapper";
 import LoginForm from "./components/LoginForm";
-import  UserIcon from 'assets/user-solid.svg';
+import AssignmentIndTwoToneIcon from '@mui/icons-material/AssignmentIndTwoTone';
 
 import './styles/layout.css'
 
@@ -9,7 +9,7 @@ export default function LoginPage(){
     <AppWrapper>
       <div className="login-wrap">
         <div className="login-intro-box">
-            <img width={"40px"} src={UserIcon} alt="" />
+            <AssignmentIndTwoToneIcon/>
             <p>Json Web Token</p>
             <p>let's build JWT Login</p>
         </div>
