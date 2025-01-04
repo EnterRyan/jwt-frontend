@@ -4,18 +4,15 @@ import NormalInput from "@shared/ui/items/NormalInput";
 import CheckBox from "@shared/ui/items/CheckBox";
 import SubmitButton from "@shared/ui/items/SubmitButton";
 
+import {LoginFormData, PostLogin} from '@features/auth'
 import '@pages/loginPage/styles/login-form.css';
 
-interface LoginUserData{
-  userId:string;
-  userPw:string;
-}
 
 export default function LoginForm(){
-  const loginApiUrl = "localhost:5000/api/login"
-  const {register, handleSubmit} = useForm<LoginUserData>();
-  const loginSubmit = (data:LoginUserData)=>{
-    alert(JSON.stringify(data));
+  const {register, handleSubmit} = useForm<LoginFormData>();
+  const loginSubmit =async (data:LoginFormData)=>{
+    const response = await PostLogin(data);
+    console.log(response);
   }
   return (  
     <form className="login-form" onSubmit={handleSubmit(loginSubmit)}>

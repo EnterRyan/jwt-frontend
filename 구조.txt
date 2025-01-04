@@ -35,8 +35,15 @@ src/
 │
 ├── 3.widgets/
 ├── 4.Features/
+│   └──auth/							#로그인 인증&인가
+│      ├── index.ts 
+│      ├── api/
+│			 │	 └──PostLogin.ts				#Post 로그인 Axios 함수 
+│      └──types/
+│					├──LoginToken.ts				#엑세스 리프레시 토큰 타입
+│					└──LoginData.ts     		#로그인 api 파라미터 데이터 타입
 ├── 5.entities/
-│   └── user/
+│   └──user/
 │       ├── userTypes.ts    			# 로그인한 사용자 정보 타입
 │       └── userUtils.ts    			# 마이프로필 수정 함수    
 │         
