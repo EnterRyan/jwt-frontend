@@ -1,20 +1,20 @@
 Feature-Sliced Design
 src/
-├── app/                   
+├── 0.assets													#이미지와 같은 정적리소스
+│
+├── 1.app # 애플리케이션 초기화 및 전역 설정 관련 코드
+│		│			#	ex) PC/모바일 설정, 브라우저 라우터, tankstack Query 또는 리덕스 프로바이더 (전역컴포넌트의 느낌)
 │   ├── providers/         
 │		│	├── ProtectRouterProvider.tsx  	#라우터 프로바이더
-│		│	├── UserAuthProvider.tsx		#로그인한 유저의 인가정보 ContextApi
-│		│	└── LoginKeepProvider.tsx		#로그인유지 flag contexApi
-│   ├── styles/             
-│		└── app.css										#App 전역 CSS
-│   └── index.tsx          				#라우터 선언 
-├── processes/
-│	└── auth
-│		├── interceptors/
-│		│	└── authInterceptor.ts		#api 호출이전 JWT 토큰 유효화 체크 
-│		└── lib/
-│			└── setJwtToken.ts			#발급 받은 토큰 스토리지 저장 
-├── pages/                 
+│		│	└── DarkModeProvider.tsx				#다크모드 테머 프로바이더
+│   ├── styles/
+│   │ ├──base.css											#초기화 css
+│   │ ├──font.css											#font설정
+│   │ ├──test.css											#테스트용 css
+│		│	└──theme.css										#섹상 파레트css
+│   └── index.tsx          						#라우터 선언및 App 엔트리포인트
+│
+├── 2.pages/       										#라우트와 연결된 최종 페이지          
 │	├── loginPage/
 │	│		├── components/
 │	│		│	└── LoginForm.tsx
@@ -32,22 +32,18 @@ src/
 │	└── AdminPage/
 │		├── components/
 │		└ index.tsx						#관리자 페이지 진입점.
-├── widgets/
-│	├── header/
-│	├── navigation/
-│	└── footer/
-├── features/
-│   ├── auth/     
-│		├── GetUserInfoAxios.ts			#로그인 사용자 정보 호출API
-│   │   └── PostLoginAxios.ts			#로그인용 백엔드 호출API      
-├── entities/
+│
+├── 3.widgets/
+├── 4.Features/
+├── 5.entities/
 │   └── user/
 │       ├── userTypes.ts    			# 로그인한 사용자 정보 타입
-│       └── userUtils.ts    			# 마이프로필 수정 함수              
-└── shared/
-	├── components/
+│       └── userUtils.ts    			# 마이프로필 수정 함수    
+│         
+└── 6.shared/ #전역에서 재사용 가능한 공통 모듈.
+	├──ui/
 	│	├── layout/
-	│	│	└── mainPageLayout.tsx		#하위페이지 공통 레이아웃
+	│	│	└── AppWrapper.tsx			#공통 Wrapper(배경)
 	│	└── item/
 	│		├──CheckBox.tsx					#공통 체크박스
 	│		├──NormalInput.tsx			#일반 인풋 박스(text, pw)
@@ -67,3 +63,4 @@ src/
 @react-router
 @react-hook-form
 @type-alias
+@Axios

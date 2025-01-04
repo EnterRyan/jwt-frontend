@@ -1,4 +1,4 @@
-import AppWrapper from "@shared/components/Layout/AppWrapper";
+import AppWrapper from "@shared/ui/Layout/AppWrapper";
 import LoginForm from "./components/LoginForm";
 import AssignmentIndTwoToneIcon from '@mui/icons-material/AssignmentIndTwoTone';
 
