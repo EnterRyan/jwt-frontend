@@ -19,7 +19,14 @@ export async function PostLogin(loginData: LoginFormData): Promise<LoginUserData
     console.log(response);
     return response.data;
   } catch (error) {
-    console.log(error);
-    return undefined;
+    if (axios.isAxiosError(error)) {
+        console.error("Error Data:", error.response?.data); // 서버에서 반환된 에러 메시지
+        console.error("Status Code:", error.response?.status); // 상태 코드
+        console.error(error);
+        return undefined;
+    } else {
+      console.error("Unexpected Error:", error);
+      return undefined;
+    }
   }
 }
