@@ -11,6 +11,7 @@ export async function PostLogin(loginData: LoginFormData): Promise<LoginUserData
       URL,
       loginData,
       {
+        withCredentials: true,                //쿠키 포함 요청
         headers: {
           "Content-Type": "application/json", // 헤더 추가
         },
