@@ -5,5 +5,5 @@ export interface LoginFormData{
 
 export interface LoginUserData{
   userName :string;
-  userAuth: string;
+  accessToken:string;
 }
