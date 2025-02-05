@@ -8,9 +8,9 @@ export const setCookie = (cookieName: string, value: string, exp:number)=>{
   if(exp!==0){
     date.setTime(date.getTime()+exp*24*60*60*1000);
     // document.cookie = cookieName + '='+ value + ';expires='+date.toUTCString()+';path=/';
-    document.cookie = `${cookieName}=${value};expires=${date.toUTCString()};path=/`;
+    document.cookie = `${cookieName}=${value};expires=${date.toUTCString()};path=/;SameSite=Lax`;
   }
   else{
-    document.cookie=`${cookieName}=${value};path=/`;
+    document.cookie=`${cookieName}=${value};path=/;SameSite=Lax`;
   }
 }

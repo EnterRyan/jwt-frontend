@@ -10,6 +10,10 @@
   border : var(--toggle-border-color);
 }
 
+.toggle-theme-btn:hover{
+  cursor: pointer;
+}
+
 [data-theme="dark"]{
   .toggle-theme-btn >*{
     filter: invert(1);
