@@ -8,7 +8,6 @@ type AppWrapperType = {
 }
 export default function AppWrapper({children}:AppWrapperType){
   const darkMode = useSelector((state:RootState)=>state.theme.darkMode);
-  console.log(`${darkMode?"app-wrapper-dark":"app-wrapper-light"}`)
   return(
     <div className={`app-wrapper ${darkMode?"app-wrapper-dark":"app-wrapper-light"}`}>
       {children}
