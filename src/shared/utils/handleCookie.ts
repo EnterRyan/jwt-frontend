@@ -4,6 +4,7 @@ export const getCookie = (cookieName: string): string | null => {
     .find((row) => row.startsWith(`${cookieName}=`))
     ?.split("=")[1] || null;
 };
+
 export const setCookie = (cookieName: string, value: string, exp: number) => {
   const date = new Date();
   if (exp !== 0) {
