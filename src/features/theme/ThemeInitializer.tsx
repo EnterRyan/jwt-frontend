@@ -9,9 +9,8 @@ export default function ThemeInitializer() {
   useEffect(() => {
     const savedTheme = getCookie("AppTheme") || "LightMode";
     dispatch(setThemeFromCookie(savedTheme));
-
     document.documentElement.setAttribute("data-theme", savedTheme === "DarkMode" ? "dark" : "light");
   }, [dispatch]);
 
   return null;
-}
+}  

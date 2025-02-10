@@ -74,6 +74,7 @@ src/
 @type-alias
 @Axios
 @Redux
+@Redux-persist =>테마 적용때 사용(지금은 쿠키인데 바꿔볼예정)
 
 
 # 로그인 시나리오
@@ -90,3 +91,9 @@ src/
 	=>BroadcastChannel API를 사용하여 브라우저 탭 간 상태를 동기화.?
 
 	리프레시 토큰 갱신 전략을 잘짜야 사용자 경험&보안취약점을 막을수있다는대....
+
+
+# Redux 테마 설정.
+1. 테마는 기본을 LightMode를 유지한다.
+2. 테마는 쿠키에 저장한다.(로컬스토리지는 너무쉬우니까...)
+3. 쿠키와 테마 State를 동기화하는 initializer와 redux관련 파일생성.

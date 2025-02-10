@@ -4,15 +4,20 @@ import NormalInput from "@shared/ui/items/NormalInput";
 import CheckBox from "@shared/ui/items/CheckBox";
 import SubmitButton from "@shared/ui/items/SubmitButton";
 
-import {LoginFormData, PostLogin} from '@features/auth'
+import {login, LoginFormData, PostLogin} from '@features/auth'
+import { useDispatch } from 'react-redux';
+
 import '@pages/loginPage/styles/login-form.css';
 
-
 export default function LoginForm(){
+  const dispatch = useDispatch();
   const {register, handleSubmit} = useForm<LoginFormData>();
   const loginSubmit =async (data:LoginFormData)=>{
-    const response = await PostLogin(data);
-    console.log(response);
+  const response = await PostLogin(data);
+  if(response){
+    dispatch(login(response));
+  }
+    
   }
   return (  
     <form className="login-form" onSubmit={handleSubmit(loginSubmit)}>

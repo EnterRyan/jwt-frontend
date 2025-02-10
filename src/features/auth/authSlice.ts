@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface AuthState {
-  isAuthenticated: boolean;
-  accessToken: string | null;
+  refreshExpired: string;
+  accessToken: string |null;
 }
 
 const initialState: AuthState = {
-  isAuthenticated: false,
+  refreshExpired: "",
   accessToken: null,
 };
 
@@ -14,12 +14,13 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    login: (state, action: PayloadAction<string>) => {
-      state.isAuthenticated = true;
-      state.accessToken = action.payload;
+    login: (state, action: PayloadAction<AuthState>) => {
+      state.accessToken = action.payload.accessToken;
+      state.refreshExpired = action.payload.refreshExpired;
+      console.log(JSON.stringify(state));
     },
     logout: (state) => {
-      state.isAuthenticated = false;
+      state.refreshExpired = "";
       state.accessToken = null;
     },
   },

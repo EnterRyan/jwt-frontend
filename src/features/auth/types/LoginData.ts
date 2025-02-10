@@ -4,6 +4,6 @@ export interface LoginFormData{
 }
 
 export interface LoginUserData{
-  userName :string;
-  accessToken:string;
+  refreshExpired :string;
+  accessToken:string|null;
 }
