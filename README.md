@@ -97,3 +97,9 @@ src/
 1. 테마는 기본을 LightMode를 유지한다.
 2. 테마는 쿠키에 저장한다.(로컬스토리지는 너무쉬우니까...)
 3. 쿠키와 테마 State를 동기화하는 initializer와 redux관련 파일생성.
+
+# Redux-toolkit 핵심내용
+1. Slice : 관리할 State 단위로 액션 및 리듀서를 한곳에서 관리하는 곳.
+	- createSlice()를 통해 state, action reducer를 한번에 설정함.
+	- type은 호출될 action의 식별자  ex) auth/login
+	- action은 실제 호출될 reducer ex) login
