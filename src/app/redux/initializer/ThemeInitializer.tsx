@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getCookie } from "@shared/utils/handleCookie";
-import { setThemeFromCookie } from "./themeSlice";
+import { setThemeFromCookie } from "../slices/themeSlice";
 
 export default function ThemeInitializer() {
   const dispatch = useDispatch();

@@ -6,8 +6,14 @@ src/
 ├── 1.app # 애플리케이션 초기화 및 전역 설정 관련 코드
 │   │     # ex) PC/모바일 설정, 브라우저 라우터, tankstack Query 또는 리덕스 프로바이더 (전역컴포넌트의 느낌)
 │   ├── providers/         
-│   │   ├── ProtectRouterProvider.tsx  	#라우터 프로바이더
-│   │   └── DarkModeProvider.tsx        #다크모드 테머 프로바이더
+│   │   └── ProtectRouterProvider.tsx  	#라우터 프로바이더
+│   ├── redux/
+│   │   ├── slices/
+│   │   │    ├── authSlice.ts   //인증
+│   │   │    └── themeSlice.ts  //테마
+│   │   ├── initializer/
+│   │   │    └──ThemeInitializer.tsx //새로고침용
+│   │   └── reduxStore.tsx
 │   ├── styles/
 │   │   ├──base.css    #초기화 css
 │   │   ├──font.css    #font설정
@@ -24,25 +30,26 @@ src/
 │   │   │   └── layout.css      #로그인 전체 디자인
 │   │   └ index.tsx             #로그인 페이지 진입점.
 │   ├── 2-2.myPage/
-│   │	├── components/
-│   │	│   ├── MyPageGrid.tsx    #마이페이지 레이아웃
-│   │	│   ├── inputForm.tsx     #text인풋
-│   │	│   ├── SelectForm.tsx    #셀렉트 인풋
-│   │	│   └── imageBox.tsx      #사진
-│   │	└ index.tsx	          #마이프로필 페이지 진입점.
+│   │	  ├── components/
+│   │	  │   ├── MyPageGrid.tsx    #마이페이지 레이아웃
+│   │	  │   ├── inputForm.tsx     #text인풋
+│   │	  │   ├── SelectForm.tsx    #셀렉트 인풋
+│   │	  │   └── imageBox.tsx      #사진
+│   │	  └ index.tsx	          #마이프로필 페이지 진입점.
 │   └── 2-3.AdminPage/
 │       ├──components/
 │       └ index.tsx         #관리자 페이지 진입점.
 │
 ├── 3.widgets/
 ├── 4.Features/
-│   └──auth/                 #로그인 인증&인가
-│      ├── index.ts 
-│      ├── api/
-│      │   └──PostLogin.ts   #Post 로그인 Axios 함수 
-│      └──types/
-│         ├──LoginToken.ts   #엑세스 리프레시 토큰 타입
-│         └──LoginData.ts    #로그인 api 파라미터 데이터 타입
+│   ├──auth/                 #로그인 인증&인가
+│   │  ├── index.ts 
+│   │  ├── api/
+│   │  │   └──PostLogin.ts   #Post 로그인 Axios 함수 
+│   │  └──types/
+│   │     ├──LoginToken.ts   #엑세스 리프레시 토큰 타입
+│   │     └──LoginData.ts    #로그인 api 파라미터 데이터 타입
+│   └──theme/
 ├── 5.entities/
 │   └──user/
 │       ├── userTypes.ts     # 로그인한 사용자 정보 타입
@@ -59,7 +66,7 @@ src/
 	│      └──ToggleThemeBtn.tsx #다크모드, 라이트모드 스위칭 버튼
 	├── hooks/
 	├── utils/
-	│	  └xssFilter.ts           #로그인 및 회원정보 수정의 input 필터
+	│   └xssFilter.ts           #로그인 및 회원정보 수정의 input 필터
 	└── styles/ 	
 		├──check-box.css          #공통 컴포넌트 체크박스 css	
 		├──common-layout.css      #공통 wrapper 디자인
@@ -99,7 +106,80 @@ src/
 3. 쿠키와 테마 State를 동기화하는 initializer와 redux관련 파일생성.
 
 # Redux-toolkit 핵심내용
-1. Slice : 관리할 State 단위로 액션 및 리듀서를 한곳에서 관리하는 곳.
-	- createSlice()를 통해 state, action reducer를 한번에 설정함.
-	- type은 호출될 action의 식별자  ex) auth/login
-	- action은 실제 호출될 reducer ex) login
+#### 1. Slice : Redux에서 특정 상태(State)와 관련된 액션(Action) 및 리듀서(Reducer)를 한 곳에서 관리하는 개념.
+	- createSlice()를 사용하여 State(상태), Action(액션), Reducer(리듀서)를 한 번에 설정함.\
+	- sliceName/actionName 형식으로 Redux가 자동으로 액션 타입을 생성해줌.
+```typescript
+const savedTheme = getCookie("AppTheme")||"LightMode";
+
+const initialState = {
+  darkMode: savedTheme
+};
+
+const themeSlice = createSlice({
+  name: "appTheme",
+  initialState,
+  reducers: {
+    toggleDarkMode: (state) => {
+      const newTheme = state.darkMode === "DarkMode" ? "LightMode" : "DarkMode";
+      setCookie("AppTheme", newTheme, 1);
+      return { ...state, darkMode: newTheme };
+    },
+    setThemeFromCookie: (state, action) => {
+      state.darkMode = action.payload; 
+    },
+  },
+});
+
+export const { toggleDarkMode, setThemeFromCookie  } = themeSlice.actions;
+export default themeSlice.reducer;
+```
+
+#### 2. Store : Redux에서 애플리케이션의 전역 상태(State)를 보관하는 중앙 저장소(Store).
+	- configureStore()를 사용하여 Redux Store를 생성함.
+	- 여러 개의 Slice(Reducer)를 포함할 수 있음.
+	- Provider를 사용하여 React 애플리케이션에 Store를 연결함.
+```typescript
+const store = configureStore({
+  reducer: {
+    auth: authReducer,
+    theme: themeReducer,
+  },
+});
+export type RootState = ReturnType<typeof store.getState>;
+export default store;
+```
+##### Provider로 Redux Store를 최상위 컴포넌트에 연결
+```typescript
+<Provider store={store}>
+  <App />
+</Provider>
+```
+
+#### 3. useSelector() :Redux Store에서 특정 상태를 선택(select)하여 가져오는 함수.
+	- 매개변수로 선택자 함수(Selector)를 받음
+	- state에는 Store에 저장된 모든 State들이 넘어오며 선택자로 실제로 사용할 값을 지정하면됨.
+	- 이 함수를 사용하면 해당 컴포넌트는 Redux 상태를 구독하게 됨 (상태 변경 시 자동 리렌더링)
+	- 이전 값과 동일한 경우 불필요한 리렌더링을 방지하기 위해 shallowEqual을 사용할 수 있음
+```typescript
+const darkMode = useSelector((state: RootState) => state.theme.darkMode, shallowEqual);
+```
+
+#### 4. dispatch() : Redux에게 액션(Action)을 전달하여 상태(State)를 변경하도록 하는 함수.
+- dispatch(action)을 호출하면 Redux Store가 등록된 리듀서를 실행하여 상태를 변경함.
+- 액션은 type과 payload(선택적 데이터)로 구성됨.
+- useDispatch()를 사용하여 dispatch()를 호출할 수 있음.
+- Redux는 액션의 type을 기준으로 적절한 리듀서를 찾아 실행함.
+##### payload가 없는 액션
+```typescript
+const dispatch = useDispatch();
+dispatch(toggleDarkMode()); 
+// { type: "theme/toggleDarkMode" }
+```
+
+##### payload가 있는 액션
+```typescript
+const dispatch = useDispatch();
+dispatch(login({ accessToken: "abc123", refreshGen: "xyz456" }));
+// { type: "auth/login", payload: { accessToken: "abc123", refreshGen: "xyz456" } }
+```

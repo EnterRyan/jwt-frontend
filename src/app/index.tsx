@@ -1,5 +1,5 @@
 import { ProtectRouterProvider } from '@app/providers/ProtectRouterProvider'
-import ThemeInitializer from '@features/theme/ThemeInitializer'
+import ThemeInitializer from '@app/redux/initializer/ThemeInitializer'
 import './styles/base.css'
 import './styles/theme.css'
 import  '@app/styles/font.css'

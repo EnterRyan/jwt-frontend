@@ -1,7 +1,7 @@
 import '@shared/styles/common-layout.css'
 import ToggleThemeBtn from '../items/ToggleThemeBtn';
 import { useSelector } from 'react-redux';
-import { RootState } from '@app/providers/ReduxStore';
+import { RootState } from '@app/redux/ReduxStore';
 
 type AppWrapperType = {
   children : React.ReactNode;

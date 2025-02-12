@@ -4,8 +4,9 @@ import NormalInput from "@shared/ui/items/NormalInput";
 import CheckBox from "@shared/ui/items/CheckBox";
 import SubmitButton from "@shared/ui/items/SubmitButton";
 
-import {login, LoginFormData, PostLogin} from '@features/auth'
+import  {LoginFormData, PostLogin} from '@features/auth'
 import { useDispatch } from 'react-redux';
+import { login } from '@app/redux/slices/authSlice';
 
 import '@pages/loginPage/styles/login-form.css';
 
