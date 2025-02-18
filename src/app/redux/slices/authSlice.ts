@@ -1,3 +1,4 @@
+import  Cookies from 'js-cookie';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface AuthState {
@@ -17,6 +18,7 @@ const authSlice = createSlice({
     login: (state, action: PayloadAction<AuthState>) => {
       state.accessToken = action.payload.accessToken;
       state.refreshExpired = action.payload.refreshExpired;
+      Cookies.set('exp',state.refreshExpired, {expires:1});
       console.log(JSON.stringify(state));
     },
     logout: (state) => {
