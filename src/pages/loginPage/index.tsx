@@ -3,6 +3,7 @@ import LoginForm from "./components/LoginForm";
 import AssignmentIndTwoToneIcon from '@mui/icons-material/AssignmentIndTwoTone';
 
 import './styles/layout.css'
+import ModalBase from '@shared/ui/modal/components/ModalBase';
 
 export default function LoginPage(){
   return (
@@ -17,6 +18,7 @@ export default function LoginPage(){
           <LoginForm/>
         </div>
       </div>
+      <ModalBase />
     </AppWrapper>
   )
 }
