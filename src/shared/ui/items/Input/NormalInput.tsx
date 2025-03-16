@@ -1,6 +1,6 @@
 import { UseFormRegister } from 'react-hook-form';
 import { LoginFormData } from '@features/auth';
-import '@shared/styles/normal-input.css';
+import './normal-input.css';
 
 
 type NormalInputType = {

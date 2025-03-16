@@ -1,10 +1,11 @@
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 
-import '@shared/styles/toggle-theme-btn.css';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@app/redux/ReduxStore';
 import { toggleDarkMode } from '@app/redux/slices/themeSlice';
+
+import './toggle-theme-btn.css';
 
 export default function ToggleThemeBtn() {
   //shallowEqual State가 이전값과 동일하면 재 랜더링 하지않음.

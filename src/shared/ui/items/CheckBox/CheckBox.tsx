@@ -1,4 +1,4 @@
-import '@shared/styles/check-box.css'
+import './check-box.css'
 
 type CheckBoxType = {
   inputId: string;

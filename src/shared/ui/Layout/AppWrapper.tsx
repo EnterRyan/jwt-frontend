@@ -1,5 +1,5 @@
-import '@shared/styles/common-layout.css'
-import ToggleThemeBtn from '../items/ToggleThemeBtn';
+import './common-layout.css'
+import ToggleThemeBtn from '../items/themeToggleBtn/ToggleThemeBtn';
 import { useSelector } from 'react-redux';
 import { RootState } from '@app/redux/ReduxStore';
 
