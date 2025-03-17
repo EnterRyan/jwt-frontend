@@ -1,4 +1,4 @@
-import '@shared/styles/submit-button.css'
+import './submit-button.css'
 
 export default function SubmitButton(){
   return(

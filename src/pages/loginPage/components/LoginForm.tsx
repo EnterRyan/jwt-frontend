@@ -1,9 +1,9 @@
 import {useForm} from 'react-hook-form';
 import { useNavigate  } from 'react-router';
 
-import NormalInput from "@shared/ui/items/NormalInput";
-import CheckBox from "@shared/ui/items/CheckBox";
-import SubmitButton from "@shared/ui/items/SubmitButton";
+import NormalInput from "@shared/ui/items/Input/NormalInput";
+import CheckBox from "@shared/ui/items/CheckBox/CheckBox";
+import SubmitButton from "@shared/ui/items/SubmitBtn/SubmitButton";
 
 import  {LoginFormData, PostLogin} from '@features/auth'
 import { useDispatch } from 'react-redux';

@@ -1,0 +1,23 @@
+.modal-base{
+  /*full Screen*/
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+
+  /* contents center flex*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font: var(--font-color);
+}
+
+.modal-contents{
+  width : 50vw;
+  height: 50vh;
+  background-color: var(--box-background);
+}
