@@ -3,12 +3,5 @@
   height: 100vh;
   align-content: center;
   background-color: var(--background-base);
+  color: var(--font-color);
 }
-
-/* .app-wrapper-light{
-  background-color: var(--base-light);
-}
-
-.app-wrapper-dark{
-  background-color: var(--base-dark);
-} */

@@ -1,4 +1,4 @@
-import AppWrapper from "@shared/ui/Layout/AppWrapper";
+// import AppWrapper from "@shared/ui/Layout/AppWrapper";
 import LoginForm from "./components/LoginForm";
 import AssignmentIndTwoToneIcon from '@mui/icons-material/AssignmentIndTwoTone';
 
@@ -6,7 +6,7 @@ import './styles/layout.css'
 
 export default function LoginPage(){
   return (
-    <AppWrapper>
+    // <AppWrapper>
       <div className="login-wrap">
         <div className="login-intro-box">
             <AssignmentIndTwoToneIcon/>
@@ -17,6 +17,6 @@ export default function LoginPage(){
           <LoginForm/>
         </div>
       </div>
-    </AppWrapper>
+    // </AppWrapper>
   )
 }

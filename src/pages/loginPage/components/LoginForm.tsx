@@ -1,4 +1,5 @@
 import {useForm} from 'react-hook-form';
+import { useNavigate  } from 'react-router';
 
 import NormalInput from "@shared/ui/items/NormalInput";
 import CheckBox from "@shared/ui/items/CheckBox";
@@ -12,11 +13,22 @@ import '@pages/loginPage/styles/login-form.css';
 
 export default function LoginForm(){
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const {register, handleSubmit} = useForm<LoginFormData>();
+
   const loginSubmit =async (data:LoginFormData)=>{
-  const response = await PostLogin(data);
-  if(response){
-    dispatch(login(response));
+  try{
+    const response = await PostLogin(data);
+    if(response){
+      dispatch(login(response));
+      navigate('/');
+    }
+    else{
+      alert('NOPE');
+    }
+  }
+  catch{
+    console.log("Login Fail");
   }
     
   }

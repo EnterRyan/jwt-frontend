@@ -17,7 +17,7 @@ const themeSlice = createSlice({
       return { ...state, darkMode: newTheme };
     },
     setThemeFromCookie: (state, action) => {
-      state.darkMode = action.payload; // ✅ 쿠키에서 읽은 값을 강제 설정 (불필요한 토글 방지)
+      state.darkMode = action.payload; //쿠키에서 읽은 값을 강제 설정 (불필요한 토글 방지)
     },
   },
 });
