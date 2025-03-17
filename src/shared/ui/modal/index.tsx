@@ -1,1 +1,1 @@
-export {default as modal} from './Modal';
+export {default as AlertModal} from './components/AlertModal';

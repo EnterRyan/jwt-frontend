@@ -1,0 +1,9 @@
+.accent-button{
+  border : var(--button-border);
+  background-color: var(--button-background);
+  width : 94px;
+  height: 36px;
+  color : var(--font-color);
+  border-radius: 4px;
+  font-size: medium;
+}

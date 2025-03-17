@@ -1,5 +1,6 @@
-import '@shared/styles/common-layout.css'
-import ToggleThemeBtn from '../items/ToggleThemeBtn';
+import './common-layout.css'
+import {ToggleThemeBtn} from '../items/button';
+
 
 type AppWrapperType = {
   children : React.ReactNode;

@@ -3,7 +3,7 @@ import { useNavigate  } from 'react-router';
 
 import NormalInput from "@shared/ui/items/Input/NormalInput";
 import CheckBox from "@shared/ui/items/CheckBox/CheckBox";
-import SubmitButton from "@shared/ui/items/SubmitBtn/SubmitButton";
+import {SubmitButton} from "@shared/ui/items/button";
 
 import  {LoginFormData, PostLogin} from '@features/auth'
 import { useDispatch } from 'react-redux';
@@ -11,7 +11,10 @@ import { login } from '@app/redux/slices/authSlice';
 
 import '@pages/loginPage/styles/login-form.css';
 
-export default function LoginForm(){
+type LoginFormType = {
+  setModalOpen : React.Dispatch<React.SetStateAction<boolean>>;
+}
+export default function LoginForm({setModalOpen}:LoginFormType){
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const {register, handleSubmit} = useForm<LoginFormData>();
@@ -24,7 +27,7 @@ export default function LoginForm(){
       navigate('/');
     }
     else{
-      alert('NOPE');
+      setModalOpen(prev=>!prev);
     }
   }
   catch{

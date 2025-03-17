@@ -3,8 +3,8 @@
   font-size: 14px;
 
   /* button */
-  --button-border : 1px solid #1565C0;
-  --button-background : #1565C0;
+  --button-border : 1px solid #03A9F4;
+  --button-background : #03A9F4;
   --button-font-color : #fff;
   /* toggle button */
   --toggle-border-color: 1px solid #1f1f1f;
@@ -25,7 +25,8 @@
   --input-background-hover : #e0e4e8;
   --input-border-color :  1px solid  #5F6368;;
 
-  /* check-box */
+  /* Modal */
+  --modal-background :rgba(0,0,0,38%);
 
 } 
 
@@ -49,5 +50,6 @@
   --input-background-hover : #5F6368;
   --input-border-color :  1px solid transparent;
 
-  /* check-box */
+  /* Modal */
+  --modal-background :rgba(0,0,0,54%);
 }

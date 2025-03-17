@@ -5,7 +5,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--modal-background);
   z-index: 1;
 
   /* contents center flex*/
@@ -17,7 +17,20 @@
 }
 
 .modal-contents{
-  width : 50vw;
-  height: 50vh;
+  width : 40vw;
+  height: 40vh;
   background-color: var(--box-background);
+  border-radius: 4px;
+}
+
+.modal-body{
+  height: 85%;
+}
+
+.modal-footer{
+  height: 15%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right:10px;
 }
